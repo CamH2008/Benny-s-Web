@@ -1,0 +1,144 @@
+.nav-bar {
+    background-color: #000000;  /* Black background */
+    width: 100%;
+    padding: 15px 0;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;  /* Space between nav items */
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;  /* Reduced from 16px to match index.html */
+    font-weight: 400;
+    text-transform: none;  /* Ensures text isn't automatically capitalized */
+    letter-spacing: normal;  /* Removes any extra letter spacing */
+}
+
+.nav-links a:hover {
+    color: #8BC34A;  /* Green color on hover */
+}
+
+.logo {
+    float: left;
+    margin-left: 20px;
+}
+
+.services-page .nav-links a,
+.about-page .nav-links a,
+.faq-page .nav-links a,
+.contact-page .nav-links a {
+    font-size: 14px;
+}
+
+/* Try making the selector more specific */
+header .nav-links a,
+nav .nav-links a {
+    color: white !important;  /* Using !important temporarily to test */
+    text-decoration: none;
+    font-size: 14px !important;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+}
+
+/* If the above doesn't work, try targeting the specific elements */
+.nav-bar a[href="/"],
+.nav-bar a[href="/services"],
+.nav-bar a[href="/about"],
+.nav-bar a[href="/faq"],
+.nav-bar a[href="/contact"] {
+    font-size: 14px !important;
+} 
+.nav-bar {
+    background-color: #000000;  /* Black background */
+    width: 100%;
+    padding: 15px 0;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 30px;  /* Space between nav items */
+    margin-right: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+    position: relative;  /* Added for underline positioning */
+}
+
+/* Add underline styles */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;  /* Position below text */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: #8BC34A;  /* Green color matching hover */
+    transition: width 0.3s ease;
+}
+
+/* Active state - shows underline by default */
+.nav-links a.active {
+    color: #8BC34A;
+}
+
+.nav-links a.active::after {
+    width: 70%;
+}
+
+/* Hover state for non-active links */
+.nav-links a:not(.active):hover {
+    color: #8BC34A;
+}
+
+.nav-links a:not(.active):hover::after {
+    width: 70%;
+}
+
+.logo {
+    float: left;
+    margin-left: 20px;
+}
+
+/* Remove any conflicting styles */
+.services-page .nav-links a,
+.about-page .nav-links a,
+.faq-page .nav-links a,
+.contact-page .nav-links a {
+    font-size: 14px;
+}
+
+/* Remove these if they're causing conflicts */
+header .nav-links a,
+nav .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-bar a[href="/"],
+.nav-bar a[href="/services"],
+.nav-bar a[href="/about"],
+.nav-bar a[href="/faq"],
+.nav-bar a[href="/contact"] {
+    font-size: 14px;
+} 
