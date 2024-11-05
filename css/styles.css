@@ -1719,7 +1719,6 @@ footer {
     .contact-content {
         grid-template-columns: 1fr;
         gap: 2rem;
-        padding: 2rem 1rem;
     }
     
     .emergency-banner {
@@ -2176,6 +2175,60 @@ footer {
 
     .testimonial-grid {
         padding: 1rem 2rem; /* Reduced padding */
+    }
+}
+
+/* Testimonials section */
+.testimonials {
+    padding: 4rem 2rem;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Blur effect ONLY for desktop */
+@media (min-width: 769px) {
+    .testimonials::before,
+    .testimonials::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 250px;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    .testimonials::before {
+        left: 0;
+        background: linear-gradient(to right, 
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0.9) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    }
+
+    .testimonials::after {
+        right: 0;
+        background: linear-gradient(to left,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0.9) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .testimonials {
+        padding: 2rem 1rem;
+    }
+    
+    .testimonials::before,
+    .testimonials::after {
+        display: none !important; /* Force remove blur effect */
+    }
+    
+    .testimonial-grid {
+        padding: 0;
     }
 }
 
