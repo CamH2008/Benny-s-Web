@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #4bfe16;
+    --primary-color: #33d104;
     --dark-color: #000000;
 }
 
@@ -35,8 +35,8 @@ header {
 }
 
 .logo {
-    width: 60px;
-    height: 60px;
+    width: 85px;
+    height: 85px;
     transition: transform 0.3s ease;
 }
 
@@ -214,10 +214,28 @@ header {
     z-index: 1;
 }
 
-.hero h2 {
+.hero h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+.title-underline {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    display: block;
+    border-radius: 2px;
 }
 
 .hero p {
@@ -342,7 +360,7 @@ footer {
         gap: 1rem;
     }
 
-    .hero h2 {
+    .hero h1 {
         font-size: 2rem;
     }
 }
@@ -424,6 +442,21 @@ footer {
 .about-hero h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.about-hero h1 .underline {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    display: block;
 }
 
 .about-hero p {
@@ -762,6 +795,21 @@ footer {
 .contact-hero h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.contact-hero h1 .underline {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+    display: block;
 }
 
 .contact-content {
@@ -1783,12 +1831,33 @@ footer {
 
 .service-area {
     padding: 4rem 2rem;
-    text-align: center;
-    background-color: #f5f5f5;
+    background-color: #f8f9fa;
 }
 
-.service-area h2 {
-    margin-bottom: 2rem;
+.service-areas-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.service-area-map {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+    .service-area {
+        padding: 2rem 1rem;
+    }
+    
+    .service-areas-container {
+        padding: 1rem 0;
+    }
 }
 
 .footer-info {
@@ -1902,86 +1971,158 @@ footer {
 
 .testimonials {
     padding: 4rem 2rem;
-    background-color: #f5f5f5;
+    background-color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.section-header p {
+    color: #666;
+    font-size: 1rem;
 }
 
 .testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
     gap: 2rem;
-    margin-top: 2rem;
+    padding: 1rem 4rem;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* Create the infinite scroll effect */
+.testimonial-track {
+    display: flex;
+    gap: 2rem;
+    animation: scroll 40s linear infinite;
+    width: fit-content;
 }
 
 .testimonial-card {
     background-color: white;
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-width: 350px;
+    max-width: 350px;
+    flex-shrink: 0;
 }
 
 .stars {
-    color: #ffd700;
+    color: #FFD700;
     margin-bottom: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    gap: 0.25rem;
+}
+
+.testimonial-card p {
+    color: #333;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+    font-size: 1rem;
 }
 
 .testimonial-author {
-    margin-top: 1rem;
     color: #666;
     font-style: italic;
+    font-size: 0.9rem;
 }
 
-.emergency-badges {
+/* Enhanced blur effect containers */
+.testimonials::before,
+.testimonials::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.testimonials::before {
+    left: 0;
+    background: linear-gradient(to right, 
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(255, 255, 255, 0) 100%);
+}
+
+.testimonials::after {
+    right: 0;
+    background: linear-gradient(to left,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(255, 255, 255, 0) 100%);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-350px * 3 - 2rem * 3));
+    }
+}
+
+.testimonial-track:hover {
+    animation-play-state: paused;
+}
+
+/* These styles should already exist in your styles.css file */
+.service-area {
+    padding: 4rem 2rem;
+    background-color: #f8f9fa;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    color: var(--dark-color);
+    margin-bottom: 0.5rem;
+}
+
+.section-header p {
+    color: #666;
+}
+
+.service-areas {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
     justify-content: center;
+    align-items: center;
     margin-top: 2rem;
 }
 
-.badge {
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.badge i {
-    color: var(--primary-color);
-}
-
-.footer-certifications {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.footer-certifications img {
-    height: 40px;
-    width: auto;
-}
-
-/* Add icons to feature cards */
-.feature-card i {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+.service-area-map {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 768px) {
-    .hero-buttons {
-        flex-direction: column;
-    }
-    
-    .stats-banner {
-        grid-template-columns: 1fr 1fr;
-    }
-    
-    .emergency-badges {
-        flex-direction: column;
-        align-items: center;
+    .service-area {
+        padding: 2rem 1rem;
     }
 }
+
 
