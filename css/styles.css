@@ -2125,4 +2125,58 @@ footer {
     }
 }
 
+/* Update the blur effect containers */
+.testimonials::before,
+.testimonials::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.testimonials::before {
+    left: 0;
+    background: linear-gradient(to right, 
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(255, 255, 255, 0) 100%);
+}
+
+.testimonials::after {
+    right: 0;
+    background: linear-gradient(to left,
+        rgba(255, 255, 255, 1) 0%,
+        rgba(255, 255, 255, 0.9) 50%,
+        rgba(255, 255, 255, 0) 100%);
+}
+
+/* Add mobile-specific adjustments */
+@media (max-width: 768px) {
+    .testimonials::before,
+    .testimonials::after {
+        width: 100px; /* Reduced width of blur effect */
+    }
+
+    .testimonials::before {
+        background: linear-gradient(to right, 
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0.7) 50%, /* Reduced opacity */
+            rgba(255, 255, 255, 0) 100%);
+    }
+
+    .testimonials::after {
+        background: linear-gradient(to left,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(255, 255, 255, 0.7) 50%, /* Reduced opacity */
+            rgba(255, 255, 255, 0) 100%);
+    }
+
+    .testimonial-grid {
+        padding: 1rem 2rem; /* Reduced padding */
+    }
+}
+
 
