@@ -579,17 +579,6 @@ footer {
     justify-content: center;
 }
 
-.faq-hero::after {
-    content: '';
-    position: absolute;
-    bottom: -50px;
-    left: 0;
-    right: 0;
-    height: 100px;
-    background: var(--dark-color);
-    transform: skewY(-3deg);
-    z-index: 1;
-}
 
 .hero-content {
     position: relative;
@@ -1503,7 +1492,7 @@ footer {
 
 /* Contact Page Enhanced Styles */
 .contact-hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../images/hero-bg.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('../images/contact/hero-bg.jpg');
     background-size: cover;
     background-position: center;
     padding: 6rem 2rem;
@@ -1994,19 +1983,22 @@ footer {
 
 .testimonial-grid {
     display: flex;
-    gap: 2rem;
-    padding: 1rem 4rem;
     overflow: hidden;
     position: relative;
     width: 100%;
+    padding: 1rem 0;
 }
 
-/* Create the infinite scroll effect */
 .testimonial-track {
     display: flex;
     gap: 2rem;
     animation: scroll 40s linear infinite;
-    width: fit-content;
+    width: max-content;
+}
+
+/* Add hover pause */
+.testimonial-track:hover {
+    animation-play-state: paused;
 }
 
 .testimonial-card {
@@ -2017,6 +2009,14 @@ footer {
     min-width: 350px;
     max-width: 350px;
     flex-shrink: 0;
+    border: 2px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Add hover effect for cards */
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .stars {
@@ -2027,7 +2027,7 @@ footer {
     gap: 0.25rem;
 }
 
-.testimonial-card p {
+.testimonial-text {
     color: #333;
     margin-bottom: 1rem;
     line-height: 1.5;
@@ -2038,34 +2038,7 @@ footer {
     color: #666;
     font-style: italic;
     font-size: 0.9rem;
-}
-
-/* Enhanced blur effect containers */
-.testimonials::before,
-.testimonials::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 250px;
-    z-index: 2;
-    pointer-events: none;
-}
-
-.testimonials::before {
-    left: 0;
-    background: linear-gradient(to right, 
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 0.9) 50%,
-        rgba(255, 255, 255, 0) 100%);
-}
-
-.testimonials::after {
-    right: 0;
-    background: linear-gradient(to left,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 0.9) 50%,
-        rgba(255, 255, 255, 0) 100%);
+    margin-top: 1rem;
 }
 
 @keyframes scroll {
@@ -2073,65 +2046,18 @@ footer {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-350px * 3 - 2rem * 3));
+        transform: translateX(calc(-350px * 3 - 6rem)); /* Width of 3 cards + gaps */
     }
 }
 
-.testimonial-track:hover {
-    animation-play-state: paused;
-}
-
-/* These styles should already exist in your styles.css file */
-.service-area {
-    padding: 4rem 2rem;
-    background-color: #f8f9fa;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.section-header h2 {
-    color: var(--dark-color);
-    margin-bottom: 0.5rem;
-}
-
-.section-header p {
-    color: #666;
-}
-
-.service-areas {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-}
-
-.service-area-map {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-@media (max-width: 768px) {
-    .service-area {
-        padding: 2rem 1rem;
-    }
-}
-
-/* Update the blur effect containers */
+/* Add these new styles for smooth edges */
 .testimonials::before,
 .testimonials::after {
     content: '';
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 250px;
+    width: 150px;
     z-index: 2;
     pointer-events: none;
 }
@@ -2140,7 +2066,6 @@ footer {
     left: 0;
     background: linear-gradient(to right, 
         rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 0.9) 50%,
         rgba(255, 255, 255, 0) 100%);
 }
 
@@ -2148,87 +2073,38 @@ footer {
     right: 0;
     background: linear-gradient(to left,
         rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 0.9) 50%,
         rgba(255, 255, 255, 0) 100%);
 }
 
-/* Add mobile-specific adjustments */
+/* Mobile responsiveness */
 @media (max-width: 768px) {
+    .testimonial-card {
+        min-width: 280px;
+        max-width: 280px;
+        padding: 1.5rem;
+    }
+
     .testimonials::before,
     .testimonials::after {
-        width: 100px; /* Reduced width of blur effect */
+        width: 50px;
     }
 
-    .testimonials::before {
-        background: linear-gradient(to right, 
-            rgba(255, 255, 255, 1) 0%,
-            rgba(255, 255, 255, 0.7) 50%, /* Reduced opacity */
-            rgba(255, 255, 255, 0) 100%);
-    }
-
-    .testimonials::after {
-        background: linear-gradient(to left,
-            rgba(255, 255, 255, 1) 0%,
-            rgba(255, 255, 255, 0.7) 50%, /* Reduced opacity */
-            rgba(255, 255, 255, 0) 100%);
-    }
-
-    .testimonial-grid {
-        padding: 1rem 2rem; /* Reduced padding */
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-280px * 3 - 6rem)); /* Adjusted for mobile */
+        }
     }
 }
 
-/* Testimonials section */
-.testimonials {
-    padding: 4rem 2rem;
-    background-color: #fff;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Blur effect ONLY for desktop */
-@media (min-width: 769px) {
-    .testimonials::before,
-    .testimonials::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 250px;
-        z-index: 2;
-        pointer-events: none;
-    }
-
-    .testimonials::before {
-        left: 0;
-        background: linear-gradient(to right, 
-            rgba(255, 255, 255, 1) 0%,
-            rgba(255, 255, 255, 0.9) 50%,
-            rgba(255, 255, 255, 0) 100%);
-    }
-
-    .testimonials::after {
-        right: 0;
-        background: linear-gradient(to left,
-            rgba(255, 255, 255, 1) 0%,
-            rgba(255, 255, 255, 0.9) 50%,
-            rgba(255, 255, 255, 0) 100%);
-    }
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-    .testimonials {
-        padding: 2rem 1rem;
-    }
-    
-    .testimonials::before,
-    .testimonials::after {
-        display: none !important; /* Force remove blur effect */
-    }
-    
-    .testimonial-grid {
-        padding: 0;
+@media screen and (max-width: 768px) {
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
     }
 }
 
