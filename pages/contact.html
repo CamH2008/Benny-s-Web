@@ -10,19 +10,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Header (same as other pages) -->
     <header>
         <div class="logo-container">
             <img src="../images/header/logo.png" alt="Benny's Roadside Repair Logo" class="logo">
             <h1>Benny's Roadside Repair</h1>
-        <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="main-nav">
-            <span class="hamburger-lines">
-                <span class="line line1"></span>
-                <span class="line line2"></span>
-                <span class="line line3"></span>
-            </span>
-            <span class="sr-only">Menu</span>
-        </button>
+            <button class="mobile-nav-toggle" aria-expanded="false" aria-controls="main-nav">
+                <span class="hamburger-lines">
+                    <span class="line line1"></span>
+                    <span class="line line2"></span>
+                    <span class="line line3"></span>
+                </span>
+                <span class="sr-only">Menu</span>
+            </button>
         </div>
         <nav class="main-nav">
             <ul>
@@ -30,96 +29,64 @@
                 <li><a href="services.html">Services</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="faq.html">FAQ</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section class="contact-hero">
             <div class="hero-content">
-                <h1>Contact Us<span class="underline"></span></h1>
-                <p>Professional Mobile Truck & Trailer Repair</p>
-                <div class="hero-buttons">
-                    <a href="tel:519-333-7902" class="cta-button">Call Now: (519) 333-7902</a>
-                </div>
+                <h1>Contact Us<span class="title-underline"></span></h1>
+                <p style="margin-top: 2.5rem;">We're here to help with all your roadside assistance needs</p>
             </div>
         </section>
 
-        <section class="contact-content">
-            <div class="contact-info">
+        <section class="contact-section">
+            <div class="contact-container">
                 <h2>How Can We Help?</h2>
-                <div class="contact-details">
-                    <div class="contact-item emergency-item">
-                        <i class="fas fa-clock"></i>
+                <div class="contact-cards">
+                    <!-- Emergency Service Card -->
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
                         <h3>24/7 Emergency Service</h3>
                         <p>Stranded? We're here to help anytime, anywhere in the Sarnia area.</p>
-                        <a href="tel:519-333-7902" class="emergency-phone-button">
+                        <a href="tel:519-333-7902" class="contact-button">
                             <i class="fas fa-phone"></i> Call Now: (519) 333-7902
                         </a>
                     </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
+
+                    <!-- Email Card -->
+                    <div class="contact-card">
+                        <div class="card-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
                         <h3>Email Us</h3>
                         <p>For non-emergency inquiries, reach out via email.</p>
-                        <a href="mailto:info@bennysrepair.com" class="email-button">
-                            info@bennysrepair.com
+                        <a href="mailto:bennysroadsiderepair@gmail.com" class="contact-button">
+                            bennysroadsiderepair@gmail.com
                         </a>
                     </div>
-                    
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Service Area</h3>
-                        <p>Proudly serving Sarnia and surrounding areas</p>
-                        <div class="service-areas">
-                            <span class="area-tag">Sarnia</span>
-                            <span class="area-tag">Point Edward</span>
-                            <span class="area-tag">Bright's Grove</span>
-                        </div>
-                    </div>
                 </div>
-            </div>
-
-            <div class="contact-form-container">
-                <h2>Send Us a Message</h2>
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder="Your Name" required>
-                        <span class="focus-border green-border"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder="Your Email" required>
-                        <span class="focus-border green-border"></span>
-                    </div>
-                    <div class="form-group">
-                        <select id="inquiry-type" required class="green-border">
-                            <option value="" disabled selected>Select Inquiry Type</option>
-                            <option value="quote">Request a Quote</option>
-                            <option value="service">Service Information</option>
-                            <option value="feedback">Feedback</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" placeholder="Your Message" required></textarea>
-                        <span class="focus-border green-border"></span>
-                    </div>
-                    <button type="submit" class="submit-button">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
             </div>
         </section>
     </main>
 
     <!-- Footer (same as other pages) -->
     <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Benny's Roadside Repair. All rights reserved.</p>
-            <div class="footer-links">
-                <a href="privacy-policy.html">Privacy Policy</a>
-                <a href="terms-conditions.html">Terms & Conditions</a>
+        <div class="footer-wrapper">
+            <div class="footer-text">
+                <p>© 2024 Benny's Roadside Repair. All rights reserved.</p>
+                <a href="https://www.facebook.com/people/Bennys-Roadside-Repair/100084636440588/" class="social-link" target="_blank">
+                    <img src="../images/social/facebook-logo.png" alt="Facebook">
+                </a>    
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>  
+                    <a href="#">Terms & Conditions</a>
+                </div>
             </div>
         </div>
     </footer>

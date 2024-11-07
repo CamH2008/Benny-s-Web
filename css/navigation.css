@@ -142,3 +142,60 @@ nav .nav-links a {
 .nav-bar a[href="/contact"] {
     font-size: 14px;
 } 
+
+/* Update active state styles */
+.nav-links a.active,
+.main-nav ul li a.active {
+    color: var(--primary-color);
+    position: relative;
+}
+
+.nav-links a.active::after,
+.main-nav ul li a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 3px;
+    background-color: var(--primary-color);
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .main-nav ul li a.active::after {
+        bottom: -2px;
+        width: 100%;
+    }
+    
+    .main-nav.active ul li a.active {
+        color: var(--primary-color);
+    }
+} 
+
+
+
+/* Remove any conflicting styles */
+header .nav-links a,
+nav .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .main-nav ul li a.active,
+    .main-nav.active ul li a.active {
+        color: var(--primary-color) !important;
+    }
+    
+    .main-nav ul li a.active::after {
+        bottom: -2px;
+        width: 100%;
+    }
+} 
