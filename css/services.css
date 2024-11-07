@@ -891,3 +891,44 @@
     border-radius: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/* Update the categories grid and cards for better mobile display */
+@media (max-width: 768px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .category-card {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+    }
+
+    .category-image {
+        height: 200px;
+        width: 100%;
+        object-fit: cover;
+    }
+
+    .service-categories {
+        padding: 2rem 1rem;
+    }
+
+    .service-categories h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+}
+
+.service-area-map {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 3px solid var(--primary-color);  /* Add green border around the map */
+}
